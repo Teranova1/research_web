@@ -4,7 +4,6 @@ import {
   Clock, 
   FileText, 
   Presentation, 
-  Award,
   Target,
   ChevronRight
 } from "lucide-react"
@@ -16,7 +15,6 @@ const milestones = [
     title: "Project Proposal",
     date: "August 2024",
     status: "completed",
-    marks: "6%",
     description: "Initial project proposal submission including problem statement, objectives, literature survey, and proposed methodology.",
     deliverables: ["Proposal Document", "Project Charter", "Research Plan"]
   },
@@ -25,7 +23,6 @@ const milestones = [
     title: "Progress Presentation 1",
     date: "December 2024",
     status: "completed",
-    marks: "6%",
     description: "First progress presentation demonstrating initial implementation, data collection, and preliminary model development.",
     deliverables: ["Progress Report", "Presentation Slides", "Demo Prototype"]
   },
@@ -34,27 +31,16 @@ const milestones = [
     title: "Progress Presentation 2",
     date: "March 2025",
     status: "in-progress",
-    marks: "18%",
     description: "Second progress presentation showcasing advanced implementation, model training results, and system integration.",
     deliverables: ["Technical Report", "Presentation Slides", "Working System Demo"]
   },
   {
     id: 4,
-    title: "Final Assessment",
+    title: "Final Presentation",
     date: "May 2025",
     status: "upcoming",
-    marks: "20%",
     description: "Final project assessment including complete system demonstration, evaluation results, and research paper.",
     deliverables: ["Final Report", "Research Paper", "Complete System", "User Manual"]
-  },
-  {
-    id: 5,
-    title: "Viva Voce",
-    date: "June 2025",
-    status: "upcoming",
-    marks: "12%",
-    description: "Final oral examination and defense of the research project before the evaluation panel.",
-    deliverables: ["Presentation Slides", "System Demonstration", "Q&A Session"]
   }
 ]
 
@@ -127,12 +113,12 @@ export default function MilestonesPage() {
               <div className="mt-1 text-sm text-primary/80">In Progress</div>
             </div>
             <div className="rounded-xl border border-border/50 bg-muted/30 p-6 text-center">
-              <div className="text-3xl font-bold text-muted-foreground">2</div>
+              <div className="text-3xl font-bold text-muted-foreground">1</div>
               <div className="mt-1 text-sm text-muted-foreground">Upcoming</div>
             </div>
             <div className="rounded-xl border border-border/50 bg-card/50 p-6 text-center">
-              <div className="text-3xl font-bold text-foreground">62%</div>
-              <div className="mt-1 text-sm text-muted-foreground">Total Marks</div>
+              <div className="text-3xl font-bold text-foreground">4</div>
+              <div className="mt-1 text-sm text-muted-foreground">Total Milestones</div>
             </div>
           </div>
         </div>
@@ -191,7 +177,7 @@ export default function MilestonesPage() {
                       statusConfig.borderColor,
                       statusConfig.bgColor
                     )}>
-                      <div className="mb-4 flex flex-wrap items-start justify-between gap-4">
+                      <div className="mb-4">
                         <div>
                           <div className="mb-2 flex items-center gap-3">
                             <span className={cn(
@@ -209,10 +195,6 @@ export default function MilestonesPage() {
                             </span>
                           </div>
                           <h3 className="text-xl font-semibold text-foreground">{milestone.title}</h3>
-                        </div>
-                        <div className="flex items-center gap-2 rounded-lg border border-primary/30 bg-primary/10 px-4 py-2">
-                          <Award className="h-4 w-4 text-primary" />
-                          <span className="text-sm font-bold text-primary">{milestone.marks}</span>
                         </div>
                       </div>
                       
@@ -263,16 +245,15 @@ export default function MilestonesPage() {
               </div>
               <div className="space-y-4">
                 {[
-                  { name: "Project Charter", marks: "2%" },
-                  { name: "Final Report", marks: "10%" },
-                  { name: "Research Paper", marks: "10%" }
+                  { name: "Project Charter" },
+                  { name: "Final Report" },
+                  { name: "Research Paper" }
                 ].map((item) => (
-                  <div key={item.name} className="flex items-center justify-between">
+                  <div key={item.name} className="flex items-center">
                     <span className="flex items-center gap-2 text-sm text-muted-foreground">
                       <ChevronRight className="h-3 w-3 text-primary" />
                       {item.name}
                     </span>
-                    <span className="text-sm font-semibold text-foreground">{item.marks}</span>
                   </div>
                 ))}
               </div>
@@ -287,16 +268,15 @@ export default function MilestonesPage() {
               </div>
               <div className="space-y-4">
                 {[
-                  { name: "Proposal", marks: "6%" },
-                  { name: "Progress 1", marks: "6%" },
-                  { name: "Progress 2", marks: "18%" }
+                  { name: "Proposal" },
+                  { name: "Progress 1" },
+                  { name: "Progress 2" }
                 ].map((item) => (
-                  <div key={item.name} className="flex items-center justify-between">
+                  <div key={item.name} className="flex items-center">
                     <span className="flex items-center gap-2 text-sm text-muted-foreground">
                       <ChevronRight className="h-3 w-3 text-primary" />
                       {item.name}
                     </span>
-                    <span className="text-sm font-semibold text-foreground">{item.marks}</span>
                   </div>
                 ))}
               </div>
@@ -305,22 +285,20 @@ export default function MilestonesPage() {
             <div className="rounded-2xl border border-border/50 bg-card/50 p-6">
               <div className="mb-6 flex items-center gap-3">
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
-                  <Award className="h-6 w-6 text-primary" />
+                  <Target className="h-6 w-6 text-primary" />
                 </div>
                 <h3 className="text-lg font-semibold text-foreground">Final Evaluation</h3>
               </div>
               <div className="space-y-4">
                 {[
-                  { name: "Final Assessment", marks: "20%" },
-                  { name: "Viva Voce", marks: "12%" },
-                  { name: "Log Book", marks: "4%" }
+                  { name: "Final Assessment" },
+                  { name: "Log Book" }
                 ].map((item) => (
-                  <div key={item.name} className="flex items-center justify-between">
+                  <div key={item.name} className="flex items-center">
                     <span className="flex items-center gap-2 text-sm text-muted-foreground">
                       <ChevronRight className="h-3 w-3 text-primary" />
                       {item.name}
                     </span>
-                    <span className="text-sm font-semibold text-foreground">{item.marks}</span>
                   </div>
                 ))}
               </div>

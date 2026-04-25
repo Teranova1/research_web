@@ -21,6 +21,7 @@ const teamMembers = [
     email: "it22594440@my.sliit.lk",
     linkedin: "#",
     github: "#",
+    image: "/members/IT22594440.jpg",
     icon: Link2
   },
   {
@@ -32,6 +33,7 @@ const teamMembers = [
     email: "it22561220@my.sliit.lk",
     linkedin: "#",
     github: "#",
+    image: "/members/IT22561220.png",
     icon: FileWarning
   },
   {
@@ -39,10 +41,11 @@ const teamMembers = [
     id: "IT22560230",
     role: "Fake User Detection",
     component: "Behavior and Emotion Analysis to Detect Fake Users",
-    description: "Implements NLP + ML for detecting fake/manipulative accounts through emotion analysis with intensity-level classification.",
+    description: "Implements NLP + ML for detecting manipulative accounts through emotion analysis with intensity-level classification.",
     email: "it22560230@my.sliit.lk",
     linkedin: "#",
     github: "#",
+    image: "/members/IT22560230.png",
     icon: Brain
   },
   {
@@ -54,24 +57,27 @@ const teamMembers = [
     email: "it22602428@my.sliit.lk",
     linkedin: "#",
     github: "#",
+    image: "/members/IT22602428.png",
     icon: Eye
   }
 ]
 
 const supervisors = [
   {
-    name: "Ms. Jenny Krishara",
+    name: "Mr. Deemantha Siriwardana",
     role: "Supervisor",
     department: "Department of Information Technology",
     description: "Senior Lecturer with expertise in Machine Learning and Cybersecurity. Guides the research methodology and technical implementation.",
-    email: "jenny.k@sliit.lk"
+    email: "",
+    image: "/supervisors/supervisor.png"
   },
   {
-    name: "Ms. Hashini Senaratne",
+    name: "Ms. Ayesha Wijesooriya",
     role: "Co-Supervisor",
     department: "Department of Information Technology",
     description: "Lecturer specializing in Mobile Application Development and Software Engineering. Provides guidance on system design and development.",
-    email: "hashini.s@sliit.lk"
+    email: "",
+    image: "/supervisors/co-supervisor.png"
   }
 ]
 
@@ -129,7 +135,7 @@ export default function AboutPage() {
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
                 <GraduationCap className="h-6 w-6 text-primary" />
               </div>
-              <div className="text-2xl font-bold text-foreground">IT</div>
+              <div className="text-2xl font-bold text-foreground">CS</div>
               <div className="text-sm text-muted-foreground">Department</div>
             </div>
           </div>
@@ -161,60 +167,53 @@ export default function AboutPage() {
             {teamMembers.map((member, index) => (
               <div
                 key={member.id}
-                className="group relative rounded-2xl border border-border/50 bg-card/50 p-8 transition-all hover:border-primary/50"
+                className="group overflow-hidden rounded-2xl border border-border/50 bg-card/50 transition-all hover:border-primary/50"
               >
-                <div className="absolute -right-2 -top-2 flex h-8 w-8 items-center justify-center rounded-full bg-primary/10 text-xs font-bold text-primary">
-                  {String(index + 1).padStart(2, '0')}
-                </div>
-                
-                <div className="mb-6 flex items-start gap-4">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 text-primary transition-transform group-hover:scale-110">
-                    <member.icon className="h-7 w-7" />
-                  </div>
-                  <div>
-                    <div className="text-xs font-medium text-primary">{member.role}</div>
-                    <h3 className="text-lg font-semibold text-foreground">{member.component}</h3>
+                <div className="relative flex items-center justify-center overflow-hidden bg-background/60 p-3">
+                  <img
+                    src={member.image}
+                    alt={`${member.name} profile`}
+                    className="h-48 w-auto max-w-full rounded-lg object-contain bg-background/80"
+                    loading="lazy"
+                  />
+                  <div className="absolute left-4 top-4 rounded-full bg-background/80 px-3 py-1 text-xs font-semibold text-primary backdrop-blur">
+                    Lead Researcher
                   </div>
                 </div>
-                
-                <div className="mb-6 flex items-center gap-4">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-primary/20 to-accent/20 text-xl font-bold text-primary">
-                    {member.name.split(' ').map(n => n[0]).join('').slice(0, 2)}
+
+                <div className="p-6">
+                  <h3 className="text-lg font-semibold text-foreground">{member.name}</h3>
+                  <p className="text-xs text-muted-foreground">{member.id}</p>
+                  <p className="mt-2 text-sm font-medium text-primary">{member.role}</p>
+                  <p className="mt-1 text-sm text-muted-foreground">{member.component}</p>
+
+                  <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                    {member.description}
+                  </p>
+
+                  <div className="mt-6 flex gap-3">
+                    <a
+                      href={`mailto:${member.email}`}
+                      className="flex h-10 w-10 items-center justify-center rounded-lg border border-border/50 bg-background/50 text-muted-foreground transition-all hover:border-primary hover:bg-primary/10 hover:text-primary"
+                      title="Email"
+                    >
+                      <Mail className="h-4 w-4" />
+                    </a>
+                    <a
+                      href={member.linkedin}
+                      className="flex h-10 w-10 items-center justify-center rounded-lg border border-border/50 bg-background/50 text-muted-foreground transition-all hover:border-primary hover:bg-primary/10 hover:text-primary"
+                      title="LinkedIn"
+                    >
+                      <Linkedin className="h-4 w-4" />
+                    </a>
+                    <a
+                      href={member.github}
+                      className="flex h-10 w-10 items-center justify-center rounded-lg border border-border/50 bg-background/50 text-muted-foreground transition-all hover:border-primary hover:bg-primary/10 hover:text-primary"
+                      title="GitHub"
+                    >
+                      <Github className="h-4 w-4" />
+                    </a>
                   </div>
-                  <div>
-                    <h4 className="font-semibold text-foreground">{member.name}</h4>
-                    <p className="text-xs text-muted-foreground">{member.id}</p>
-                    <p className="text-sm text-primary">Lead Researcher</p>
-                  </div>
-                </div>
-                
-                <p className="mb-6 text-sm leading-relaxed text-muted-foreground">
-                  {member.description}
-                </p>
-                
-                {/* Social Links */}
-                <div className="flex gap-3">
-                  <a
-                    href={`mailto:${member.email}`}
-                    className="flex h-10 w-10 items-center justify-center rounded-lg border border-border/50 bg-background/50 text-muted-foreground transition-all hover:border-primary hover:bg-primary/10 hover:text-primary"
-                    title="Email"
-                  >
-                    <Mail className="h-4 w-4" />
-                  </a>
-                  <a
-                    href={member.linkedin}
-                    className="flex h-10 w-10 items-center justify-center rounded-lg border border-border/50 bg-background/50 text-muted-foreground transition-all hover:border-primary hover:bg-primary/10 hover:text-primary"
-                    title="LinkedIn"
-                  >
-                    <Linkedin className="h-4 w-4" />
-                  </a>
-                  <a
-                    href={member.github}
-                    className="flex h-10 w-10 items-center justify-center rounded-lg border border-border/50 bg-background/50 text-muted-foreground transition-all hover:border-primary hover:bg-primary/10 hover:text-primary"
-                    title="GitHub"
-                  >
-                    <Github className="h-4 w-4" />
-                  </a>
                 </div>
               </div>
             ))}
@@ -242,30 +241,34 @@ export default function AboutPage() {
                 key={supervisor.name}
                 className="rounded-2xl border border-border/50 bg-card/50 p-8"
               >
-                <div className="flex gap-6">
-                  {/* Avatar */}
-                  <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-primary to-accent text-2xl font-bold text-primary-foreground">
-                    {supervisor.name.split(' ').filter(n => n.length > 1).map(n => n[0]).join('')}
-                  </div>
-                  
-                  <div>
-                    <h3 className="text-xl font-semibold text-foreground">{supervisor.name}</h3>
-                    <p className="text-sm font-medium text-primary">{supervisor.role}</p>
-                    <p className="mt-1 text-sm text-muted-foreground">{supervisor.department}</p>
+                <div className="mb-6 flex items-center justify-center">
+                  <div className="relative h-40 w-40 overflow-hidden rounded-full border border-border/50 bg-background/60">
+                    <img
+                      src={supervisor.image}
+                      alt={`${supervisor.name} profile`}
+                      className={`h-full w-full object-cover ${supervisor.role === "Supervisor" ? "scale-135 object-[15%] translate-x-2" : "scale-110 object-center"}`}
+                      loading="lazy"
+                    />
                   </div>
                 </div>
+
+                <h3 className="text-xl font-semibold text-foreground">{supervisor.name}</h3>
+                <p className="text-sm font-medium text-primary">{supervisor.role}</p>
+                <p className="mt-1 text-sm text-muted-foreground">{supervisor.department}</p>
                 
                 <p className="mt-6 text-sm leading-relaxed text-muted-foreground">
                   {supervisor.description}
                 </p>
                 
-                <a
-                  href={`mailto:${supervisor.email}`}
-                  className="mt-4 inline-flex items-center gap-2 text-sm text-primary hover:underline"
-                >
-                  <Mail className="h-4 w-4" />
-                  {supervisor.email}
-                </a>
+                {supervisor.email ? (
+                  <a
+                    href={`mailto:${supervisor.email}`}
+                    className="mt-4 inline-flex items-center gap-2 text-sm text-primary hover:underline"
+                  >
+                    <Mail className="h-4 w-4" />
+                    {supervisor.email}
+                  </a>
+                ) : null}
               </div>
             ))}
           </div>

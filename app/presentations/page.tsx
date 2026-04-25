@@ -17,9 +17,11 @@ const presentations = [
     description: "Initial presentation covering project introduction, problem statement, objectives, literature survey, and proposed methodology.",
     date: "2024/08/15",
     duration: "20 minutes",
-    slides: 28,
+    slides: 42,
     status: "completed",
     type: "Group",
+    fileName: "25-26J-065_Project_Proposal_Presentation.pptx",
+    fileHref: "/presentations/25-26J-065_Project_Proposal_Presentation.pptx",
     topics: [
       "Project Overview",
       "Problem Statement",
@@ -34,10 +36,12 @@ const presentations = [
     title: "Progress Presentation I",
     description: "First progress presentation demonstrating initial system design, data collection approach, and preliminary model development.",
     date: "2024/12/10",
-    duration: "25 minutes",
-    slides: 35,
+    duration: "20 minutes",
+    slides: 28,
     status: "completed",
     type: "Group",
+    fileName: "25-26J-065_PP1_Presentation.pptx",
+    fileHref: "/presentations/25-26J-065_PP1_Presentation.pptx",
     topics: [
       "Progress Summary",
       "System Architecture",
@@ -51,11 +55,13 @@ const presentations = [
     id: 3,
     title: "Progress Presentation II",
     description: "Second progress presentation showcasing advanced implementation, model training results, system integration, and evaluation metrics.",
-    date: "2025/03/20",
-    duration: "30 minutes",
-    slides: 42,
-    status: "in-progress",
+    date: "2025/03/09",
+    duration: "20 minutes",
+    slides: 20,
+    status: "completed",
     type: "Group",
+    fileName: "25-26J-065_PP2_Presentation.pptx",
+    fileHref: "/presentations/25-26J-065_PP2_Presentation.pptx",
     topics: [
       "Development Progress",
       "Model Training",
@@ -140,6 +146,7 @@ export default function PresentationsPage() {
           <div className="grid gap-8 lg:grid-cols-2">
             {presentations.map((pres) => {
               const statusConfig = getStatusConfig(pres.status)
+              const canDownload = Boolean(pres.fileHref)
               
               return (
                 <div
@@ -221,20 +228,43 @@ export default function PresentationsPage() {
                     
                     {/* Actions */}
                     <div className="flex gap-3">
-                      <button 
-                        className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl border border-border/50 bg-background/50 px-4 py-3 text-sm font-medium text-foreground transition-all hover:bg-muted disabled:cursor-not-allowed disabled:opacity-50"
-                        disabled={pres.status === "upcoming"}
-                      >
-                        <Play className="h-4 w-4" />
-                        View Slides
-                      </button>
-                      <button 
-                        className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-primary to-accent px-4 py-3 text-sm font-medium text-primary-foreground transition-all hover:shadow-lg hover:shadow-primary/20 disabled:cursor-not-allowed disabled:opacity-50"
-                        disabled={pres.status === "upcoming"}
-                      >
-                        <Download className="h-4 w-4" />
-                        Download
-                      </button>
+                      {canDownload ? (
+                        <a
+                          href={pres.fileHref}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl border border-border/50 bg-background/50 px-4 py-3 text-sm font-medium text-foreground transition-all hover:bg-muted"
+                        >
+                          <Play className="h-4 w-4" />
+                          View Slides
+                        </a>
+                      ) : (
+                        <button
+                          className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl border border-border/50 bg-background/50 px-4 py-3 text-sm font-medium text-foreground transition-all hover:bg-muted disabled:cursor-not-allowed disabled:opacity-50"
+                          disabled
+                        >
+                          <Play className="h-4 w-4" />
+                          View Slides
+                        </button>
+                      )}
+                      {canDownload ? (
+                        <a
+                          href={pres.fileHref}
+                          download={pres.fileName}
+                          className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-primary to-accent px-4 py-3 text-sm font-medium text-primary-foreground transition-all hover:shadow-lg hover:shadow-primary/20"
+                        >
+                          <Download className="h-4 w-4" />
+                          Download
+                        </a>
+                      ) : (
+                        <button
+                          className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-primary to-accent px-4 py-3 text-sm font-medium text-primary-foreground transition-all hover:shadow-lg hover:shadow-primary/20 disabled:cursor-not-allowed disabled:opacity-50"
+                          disabled
+                        >
+                          <Download className="h-4 w-4" />
+                          Download
+                        </button>
+                      )}
                     </div>
                   </div>
                 </div>

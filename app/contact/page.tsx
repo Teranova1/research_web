@@ -44,10 +44,10 @@ const contactInfo = [
 ]
 
 const teamContacts = [
-  { name: "Gangoda G.W.A.P.", email: "it22594440@my.sliit.lk", role: "Spam URL Detection", icon: Link2 },
-  { name: "Hitihaminelage K.I.S.", email: "it22561220@my.sliit.lk", role: "Malware Document Detection", icon: FileWarning },
-  { name: "Rupasinghe P.S.N.A.", email: "it22560230@my.sliit.lk", role: "Fake User Detection", icon: Brain },
-  { name: "Perera N.T.K.D.", email: "it22602428@my.sliit.lk", role: "Sensitive Content Detection", icon: Eye },
+  { name: "Gangoda G.W.A.P.", email: "it22594440@my.sliit.lk", role: "Spam URL Detection", image: "/members/IT22594440.jpg", icon: Link2 },
+  { name: "Hitihaminelage K.I.S.", email: "it22561220@my.sliit.lk", role: "Malware Document Detection", image: "/members/IT22561220.png", icon: FileWarning },
+  { name: "Rupasinghe P.S.N.A.", email: "it22560230@my.sliit.lk", role: "Fake User Detection", image: "/members/IT22560230.png", icon: Brain },
+  { name: "Perera N.T.K.D.", email: "it22602428@my.sliit.lk", role: "Sensitive Content Detection", image: "/members/IT22602428.png", icon: Eye },
 ]
 
 export default function ContactPage() {
@@ -255,8 +255,17 @@ export default function ContactPage() {
                   >
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-4">
-                        <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition-transform group-hover:scale-110">
-                          <member.icon className="h-5 w-5" />
+                        <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition-transform group-hover:scale-110 overflow-hidden">
+                          {member.image ? (
+                            <img
+                              src={member.image}
+                              alt={`${member.name} profile`}
+                              className="h-full w-full object-cover"
+                              loading="lazy"
+                            />
+                          ) : (
+                            <member.icon className="h-5 w-5" />
+                          )}
                         </div>
                         <div>
                           <h3 className="font-medium text-foreground">{member.name}</h3>
