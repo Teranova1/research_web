@@ -29,7 +29,7 @@ const features = [
   },
   {
     icon: Brain,
-    title: "Fake User Detection",
+    title: "Emotion  Detection",
     description: "Behavior and emotion analysis using BERT/DeBERTa to detect fake/manipulative accounts with intensity-level classification.",
     lead: "Rupasinghe P.S.N.A."
   },
@@ -50,7 +50,7 @@ const stats = [
 
 const techStack = [
   "Python", "Kotlin", "Flutter", "TensorFlow Lite", 
-  "PyTorch Mobile", "Firebase", "BERT", "DeBERTa",
+  "PyTorch Mobile", "SQLlite", "BERT", "DeBERTa",
   "MobileNetV3", "Cuckoo Sandbox", "Docker"
 ]
 

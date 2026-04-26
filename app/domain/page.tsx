@@ -27,7 +27,7 @@ const components = [
       "Apply ML models (Random Forest, XGBoost) for URL classification",
       "Generate real-time alerts for phishing and malware threats"
     ],
-    technologies: ["Kotlin", "Firebase", "Android WebView", "TensorFlow Lite", "TF-IDF"],
+    technologies: ["Kotlin", "SQLlite", "Android WebView", "TensorFlow Lite", "TF-IDF"],
     icon: Link2
   },
   {
@@ -46,7 +46,7 @@ const components = [
   },
   {
     id: "03",
-    title: "Fake User Detection",
+    title: "Emotion Detection",
     student: "Rupasinghe P.S.N.A.",
     studentId: "IT22560230",
     objectives: [
@@ -113,7 +113,7 @@ const technologies = [
   { name: "Kotlin", category: "Android", icon: Server, description: "Native Android development and accessibility" },
   { name: "TensorFlow Lite", category: "ML", icon: Brain, description: "On-device ML inference framework" },
   { name: "BERT/DeBERTa", category: "NLP", icon: Brain, description: "Transformer models for text analysis" },
-  { name: "Firebase", category: "Backend", icon: Database, description: "Real-time database and authentication" },
+  { name: "SQLlite", category: "Backend", icon: Database, description: "Lightweight local database" },
 ]
 
 export default function DomainPage() {
@@ -232,10 +232,10 @@ export default function DomainPage() {
           
           <div className="mt-12 grid gap-6 lg:grid-cols-2">
             {[
-              { title: "URL-Based Threats", desc: "Studies show 91% of cyberattacks start with a phishing email or message. ML-based URL classifiers achieve 95%+ accuracy on known threats but struggle with zero-day attacks requiring behavioral analysis." },
-              { title: "Document-Based Malware", desc: "Office documents and PDFs remain primary vectors for malware delivery. Sandbox-based behavioral analysis combined with static features achieves superior detection rates over signature-based methods." },
-              { title: "Social Engineering", desc: "Fake accounts use emotional manipulation patterns detectable through NLP. BERT-based models can identify manipulative language with 87% accuracy when trained on appropriate datasets." },
-              { title: "Sensitive Content", desc: "On-device image classification using MobileNet variants enables real-time content filtering without cloud dependency, preserving privacy while achieving 94%+ detection accuracy." }
+              { title: "URL-Based Threats", desc: "ML-based URL classifiers achieve up to 99.5% accuracy on known threats, making real-time link scanning a critical first line of defence in messaging platform protection." },
+              { title: "Document-Based Malware", desc: "Office documents and PDFs remain primary vectors for malware delivery. Sandbox-based behavioural analysis combined with static feature extraction achieves up to 98% detection accuracy, significantly outperforming traditional signature-based methods." },
+              { title: "Emotion Detection", desc: "The emotion-based risk monitor developed in this research achieves 72% classification accuracy across eight emotion categories, enabling real-time identification of manipulative conversational behaviour in WhatsApp and Telegram messages." },
+              { title: "Sensitive Content", desc: "On-device image classification using MobileNet variants enables real-time content filtering without cloud dependency, preserving user privacy while achieving 94%+ detection accuracy across harmful visual content categories." }
             ].map((item) => (
               <div key={item.title} className="rounded-xl border border-border/50 bg-card/50 p-6">
                 <h3 className="mb-3 text-lg font-semibold text-foreground">{item.title}</h3>
@@ -411,7 +411,7 @@ export default function DomainPage() {
               <div className="rounded-xl border border-accent/30 bg-accent/5 p-6">
                 <h3 className="mb-4 text-center text-sm font-semibold text-accent">Backend Layer</h3>
                 <div className="space-y-2">
-                  {["Firebase", "Real-time Alerts", "User Auth", "Parent Sync", "Analytics"].map((item) => (
+                  {["SQLlite", "Real-time Alerts", "User Auth", "Parent Sync", "Analytics"].map((item) => (
                     <div key={item} className="rounded-lg bg-card/50 p-3 text-center text-xs text-muted-foreground">
                       {item}
                     </div>

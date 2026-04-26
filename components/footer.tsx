@@ -51,7 +51,7 @@ export function Footer() {
                 <Linkedin className="h-4 w-4" />
               </a>
               <a
-                href="mailto:cyraguard@sliit.lk"
+                href="mailto:cyraguard@gmail.com"
                 className="flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-card text-muted-foreground transition-all hover:border-primary hover:bg-primary/10 hover:text-primary"
               >
                 <Mail className="h-4 w-4" />
@@ -105,11 +105,11 @@ export function Footer() {
             <ul className="space-y-4">
               <li>
                 <a
-                  href="mailto:cyraguard@sliit.lk"
+                  href="mailto:cyraguard@gmail.com"
                   className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
                 >
                   <Mail className="h-4 w-4 text-primary" />
-                  cyraguard@sliit.lk
+                  cyraguard@gmail.com
                 </a>
               </li>
               <li>

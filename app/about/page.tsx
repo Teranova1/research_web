@@ -39,7 +39,7 @@ const teamMembers = [
   {
     name: "Rupasinghe P.S.N.A.",
     id: "IT22560230",
-    role: "Fake User Detection",
+    role: "Emotion Detection",
     component: "Behavior and Emotion Analysis to Detect Fake Users",
     description: "Implements NLP + ML for detecting manipulative accounts through emotion analysis with intensity-level classification.",
     email: "it22560230@my.sliit.lk",

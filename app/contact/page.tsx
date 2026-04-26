@@ -20,14 +20,14 @@ const contactInfo = [
   {
     icon: Mail,
     title: "Email",
-    value: "cyraguard@my.sliit.lk",
-    link: "mailto:cyraguard@my.sliit.lk"
+    value: "cyraguard@gmail.com",
+    link: "mailto:cyraguard@gmail.com"
   },
   {
     icon: Phone,
     title: "Phone",
-    value: "+94 11 754 4801",
-    link: "tel:+94117544801"
+    value: "+94 77148 9667",
+    link: "tel:+94771489667"
   },
   {
     icon: MapPin,
@@ -46,7 +46,7 @@ const contactInfo = [
 const teamContacts = [
   { name: "Gangoda G.W.A.P.", email: "it22594440@my.sliit.lk", role: "Spam URL Detection", image: "/members/IT22594440.jpg", icon: Link2 },
   { name: "Hitihaminelage K.I.S.", email: "it22561220@my.sliit.lk", role: "Malware Document Detection", image: "/members/IT22561220.png", icon: FileWarning },
-  { name: "Rupasinghe P.S.N.A.", email: "it22560230@my.sliit.lk", role: "Fake User Detection", image: "/members/IT22560230.png", icon: Brain },
+  { name: "Rupasinghe P.S.N.A.", email: "it22560230@my.sliit.lk", role: "Emotion Detection", image: "/members/IT22560230.png", icon: Brain },
   { name: "Perera N.T.K.D.", email: "it22602428@my.sliit.lk", role: "Sensitive Content Detection", image: "/members/IT22602428.png", icon: Eye },
 ]
 
@@ -310,7 +310,7 @@ export default function ContactPage() {
                     <Linkedin className="h-5 w-5" />
                   </a>
                   <a
-                    href="mailto:cyraguard@my.sliit.lk"
+                    href="mailto:cyraguard@gmail.com"
                     className="flex h-12 w-12 items-center justify-center rounded-xl border border-border/50 bg-background/50 text-muted-foreground transition-all hover:border-primary hover:bg-primary/10 hover:text-primary"
                   >
                     <Mail className="h-5 w-5" />
