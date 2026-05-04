@@ -1,15 +1,10 @@
-"use client"
-
-import { useState } from "react"
 import { 
   Mail, 
   MapPin, 
   Phone, 
-  Send, 
   Github, 
   Linkedin,
   Clock,
-  CheckCircle2,
   Link2,
   FileWarning,
   Brain,
@@ -20,8 +15,8 @@ const contactInfo = [
   {
     icon: Mail,
     title: "Email",
-    value: "cyraguard@gmail.com",
-    link: "mailto:cyraguard@gmail.com"
+    value: "cyraguard.team@gmail.com",
+    link: "mailto:cyraguard.team@gmail.com"
   },
   {
     icon: Phone,
@@ -51,34 +46,6 @@ const teamContacts = [
 ]
 
 export default function ContactPage() {
-  const [formState, setFormState] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: ""
-  })
-  const [isSubmitted, setIsSubmitted] = useState(false)
-  const [isSubmitting, setIsSubmitting] = useState(false)
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000))
-    
-    setIsSubmitting(false)
-    setIsSubmitted(true)
-    setFormState({ name: "", email: "", subject: "", message: "" })
-  }
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormState(prev => ({
-      ...prev,
-      [e.target.name]: e.target.value
-    }))
-  }
-
   return (
     <div className="flex flex-col">
       {/* Header */}
@@ -130,121 +97,10 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Contact Form & Team Contacts */}
+      {/* Team Contacts */}
       <section className="py-20 sm:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-16 lg:grid-cols-2">
-            {/* Contact Form */}
-            <div>
-              <h2 className="mb-8 text-2xl font-bold text-foreground">Send us a Message</h2>
-              
-              {isSubmitted ? (
-                <div className="rounded-2xl border border-green-500/30 bg-green-500/10 p-10 text-center">
-                  <div className="mb-6 flex justify-center">
-                    <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-green-500/20">
-                      <CheckCircle2 className="h-10 w-10 text-green-400" />
-                    </div>
-                  </div>
-                  <h3 className="text-xl font-semibold text-green-400">Message Sent!</h3>
-                  <p className="mt-3 text-sm text-green-400/80">
-                    Thank you for reaching out. We&apos;ll get back to you as soon as possible.
-                  </p>
-                  <button
-                    onClick={() => setIsSubmitted(false)}
-                    className="mt-8 rounded-xl bg-green-500/20 px-6 py-3 text-sm font-medium text-green-400 transition-colors hover:bg-green-500/30"
-                  >
-                    Send Another Message
-                  </button>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid gap-6 sm:grid-cols-2">
-                    <div>
-                      <label htmlFor="name" className="mb-2 block text-sm font-medium text-foreground">
-                        Your Name
-                      </label>
-                      <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        value={formState.name}
-                        onChange={handleChange}
-                        required
-                        className="w-full rounded-xl border border-border/50 bg-card/50 px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
-                        placeholder="John Doe"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="email" className="mb-2 block text-sm font-medium text-foreground">
-                        Email Address
-                      </label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={formState.email}
-                        onChange={handleChange}
-                        required
-                        className="w-full rounded-xl border border-border/50 bg-card/50 px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
-                        placeholder="john@example.com"
-                      />
-                    </div>
-                  </div>
-                  
-                  <div>
-                    <label htmlFor="subject" className="mb-2 block text-sm font-medium text-foreground">
-                      Subject
-                    </label>
-                    <input
-                      type="text"
-                      id="subject"
-                      name="subject"
-                      value={formState.subject}
-                      onChange={handleChange}
-                      required
-                      className="w-full rounded-xl border border-border/50 bg-card/50 px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
-                      placeholder="Research Inquiry"
-                    />
-                  </div>
-                  
-                  <div>
-                    <label htmlFor="message" className="mb-2 block text-sm font-medium text-foreground">
-                      Message
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      value={formState.message}
-                      onChange={handleChange}
-                      required
-                      rows={5}
-                      className="w-full resize-none rounded-xl border border-border/50 bg-card/50 px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
-                      placeholder="Your message here..."
-                    />
-                  </div>
-                  
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-primary to-accent px-8 py-4 text-sm font-semibold text-primary-foreground transition-all hover:shadow-xl hover:shadow-primary/20 disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto"
-                  >
-                    {isSubmitting ? (
-                      <>
-                        <div className="h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
-                        Sending...
-                      </>
-                    ) : (
-                      <>
-                        <Send className="h-4 w-4" />
-                        Send Message
-                      </>
-                    )}
-                  </button>
-                </form>
-              )}
-            </div>
-
-            {/* Team Contacts */}
+          <div className="grid gap-16">
             <div>
               <h2 className="mb-8 text-2xl font-bold text-foreground">Team Contacts</h2>
               <div className="space-y-4">
@@ -310,7 +166,7 @@ export default function ContactPage() {
                     <Linkedin className="h-5 w-5" />
                   </a>
                   <a
-                    href="mailto:cyraguard@gmail.com"
+                    href="mailto:cyraguard.team@gmail.com"
                     className="flex h-12 w-12 items-center justify-center rounded-xl border border-border/50 bg-background/50 text-muted-foreground transition-all hover:border-primary hover:bg-primary/10 hover:text-primary"
                   >
                     <Mail className="h-5 w-5" />

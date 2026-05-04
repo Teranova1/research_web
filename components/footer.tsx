@@ -1,5 +1,6 @@
 import Link from "next/link"
-import { ShieldCheck, Github, Mail, ExternalLink, Linkedin } from "lucide-react"
+import Image from "next/image"
+import { Github, Mail, ExternalLink, Linkedin } from "lucide-react"
 
 const quickLinks = [
   { href: "/", label: "Home" },
@@ -22,8 +23,14 @@ export function Footer() {
           {/* Brand Section */}
           <div className="space-y-6 lg:col-span-1">
             <Link href="/" className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-accent">
-                <ShieldCheck className="h-5 w-5 text-primary-foreground" />
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-black">
+                <Image
+                  src="/logo.png"
+                  alt="CyraGuard logo"
+                  width={40}
+                  height={40}
+                  className="h-9 w-9 object-contain"
+                />
               </div>
               <span className="text-lg font-bold text-foreground">
                 CyraGuard
@@ -51,7 +58,7 @@ export function Footer() {
                 <Linkedin className="h-4 w-4" />
               </a>
               <a
-                href="mailto:cyraguard@gmail.com"
+                href="mailto:cyraguard.team@gmail.com"
                 className="flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-card text-muted-foreground transition-all hover:border-primary hover:bg-primary/10 hover:text-primary"
               >
                 <Mail className="h-4 w-4" />
@@ -105,11 +112,11 @@ export function Footer() {
             <ul className="space-y-4">
               <li>
                 <a
-                  href="mailto:cyraguard@gmail.com"
+                  href="mailto:cyraguard.team@gmail.com"
                   className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
                 >
                   <Mail className="h-4 w-4 text-primary" />
-                  cyraguard@gmail.com
+                  cyraguard.team@gmail.com
                 </a>
               </li>
               <li>
