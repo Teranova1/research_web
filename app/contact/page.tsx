@@ -39,10 +39,10 @@ const contactInfo = [
 ]
 
 const teamContacts = [
-  { name: "Gangoda G.W.A.P.", email: "it22594440@my.sliit.lk", role: "Spam URL Detection", image: "/members/IT22594440.jpg", icon: Link2 },
-  { name: "Hitihaminelage K.I.S.", email: "it22561220@my.sliit.lk", role: "Malware Document Detection", image: "/members/IT22561220.png", icon: FileWarning },
-  { name: "Rupasinghe P.S.N.A.", email: "it22560230@my.sliit.lk", role: "Emotion Detection", image: "/members/IT22560230.png", icon: Brain },
-  { name: "Perera N.T.K.D.", email: "it22602428@my.sliit.lk", role: "Sensitive Content Detection", image: "/members/IT22602428.png", icon: Eye },
+  { name: "Gangoda G.W.A.P.", email: "akila12900@gmail.com", role: "Spam URL Detection", image: "/members/IT22594440.jpg", icon: Link2 },
+  { name: "Hitihaminelage K.I.S.", email: "kasunirajapaksha20@gmail.com", role: "Malware Document Detection", image: "/members/IT22561220.png", icon: FileWarning },
+  { name: "Rupasinghe P.S.N.A.", email: "sithijanirmal777@gmail.com", role: "Emotion Detection", image: "/members/IT22560230.png", icon: Brain },
+  { name: "Perera N.T.K.D.", email: "tharudivya12@gmail.com", role: "Sensitive Content Detection", image: "/members/IT22602428.png", icon: Eye },
 ]
 
 export default function ContactPage() {

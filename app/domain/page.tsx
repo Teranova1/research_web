@@ -116,6 +116,48 @@ const technologies = [
   { name: "SQLlite", category: "Backend", icon: Database, description: "Lightweight local database" },
 ]
 
+const references = [
+  { href: "https://doi.org/10.18653/v1/N19-1423" },
+  { href: "https://arxiv.org/abs/1810.04805" },
+  { href: "https://doi.org/10.1016/j.future.2017.08.044" },
+  { href: "https://www.usenix.org/conference/usenixsecurity19/presentation/demontis" },
+  { href: "https://doi.org/10.1016/j.eswa.2022.117399" },
+  { href: "https://doi.org/10.1080/02699939208411068" },
+  { href: "https://github.com/google-research/google-research/tree/master/goemotions" },
+  { href: "https://doi.org/10.1016/j.cose.2021.102528" },
+  { href: "https://arxiv.org/abs/1704.04861" },
+  { href: "https://arxiv.org/abs/1802.04528" },
+  { href: "https://arxiv.org/abs/1802.03162" },
+  { href: "https://icml.cc/Conferences/2009/papers/681.pdf" },
+  { href: "https://doi.org/10.1109/TNSM.2021.3050000" },
+  { href: "https://scikit-learn.org/stable/" },
+  { href: "https://www.jmlr.org/papers/volume12/pedregosa11a/pedregosa11a.pdf" },
+  { href: "https://arxiv.org/abs/1706.03762" },
+  { href: "https://doi.org/10.18653/v1/2020.emnlp-demos.6" },
+]
+
+function getReferenceMeta(href: string) {
+  if (href.startsWith("https://doi.org/")) {
+    return {
+      type: "DOI",
+      title: `doi:${href.replace("https://doi.org/", "")}`,
+    }
+  }
+  if (href.startsWith("https://arxiv.org/abs/")) {
+    return {
+      type: "arXiv",
+      title: `arXiv:${href.replace("https://arxiv.org/abs/", "")}`,
+    }
+  }
+  if (href.includes("github.com")) {
+    return { type: "GitHub", title: "GitHub repository" }
+  }
+  if (href.endsWith(".pdf")) {
+    return { type: "PDF", title: "PDF document" }
+  }
+  return { type: "Website", title: "Website" }
+}
+
 export default function DomainPage() {
   return (
     <div className="flex flex-col">
@@ -425,6 +467,46 @@ export default function DomainPage() {
                 <span className="font-medium text-foreground">Privacy First:</span> All ML inference runs on-device. 
                 Only anonymized alerts and parent dashboard data are synced to the cloud.
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* References */}
+      <section id="references" className="border-t border-border/50 bg-card/30 py-20 sm:py-28">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-12 flex items-center gap-3">
+            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+              <BookOpen className="h-5 w-5" />
+            </div>
+            <h2 className="text-2xl font-bold text-foreground sm:text-3xl">References</h2>
+          </div>
+
+          <div className="rounded-2xl border border-border/50 bg-card/50 p-8">
+            <div className="grid gap-3 sm:grid-cols-2">
+              {references.map((ref, index) => {
+                const meta = getReferenceMeta(ref.href)
+                return (
+                  <a
+                    key={ref.href}
+                    href={ref.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group rounded-xl border border-border/50 bg-background/50 p-4 transition-all hover:border-primary/50 hover:bg-card"
+                  >
+                    <div className="flex items-start justify-between gap-3">
+                      <div className="space-y-1">
+                        <div className="text-xs font-semibold text-primary">[{index + 1}] {meta.type}</div>
+                        <div className="text-sm font-medium text-foreground">{meta.title}</div>
+                        <div className="break-all text-xs text-muted-foreground group-hover:text-foreground/80">{ref.href}</div>
+                      </div>
+                      <span className="rounded-md border border-border/50 bg-card/50 px-2 py-1 text-[10px] font-semibold text-muted-foreground transition-colors group-hover:border-primary/50 group-hover:text-foreground">
+                        Open
+                      </span>
+                    </div>
+                  </a>
+                )
+              })}
             </div>
           </div>
         </div>

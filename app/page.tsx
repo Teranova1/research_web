@@ -70,18 +70,17 @@ export default function HomePage() {
               <Sparkles className="h-4 w-4" />
               <span>Child Safety Research</span>
               <span className="text-muted-foreground">|</span>
-              <span className="text-muted-foreground">2024-2025</span>
+              <span className="text-muted-foreground">2025-2026</span>
             </div>
             
             <h1 className="text-balance text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl xl:text-7xl">
-              <span className="gradient-text">Multi-Modal</span> Threat
+              <span className="gradient-text">Multi-Modal Machine Learning Approach</span>  For  
               <br />
-              Detection Platform
+              Threat Detection in WhatsApp and Telegram
             </h1>
             
             <p className="mx-auto mt-8 max-w-2xl text-pretty text-lg leading-relaxed text-muted-foreground sm:text-xl">
-              A unified machine learning approach for detecting threats in WhatsApp and Telegram 
-              - protecting young users without compromising privacy.
+              A unified machine learning approach for detecting threats in WhatsApp and Telegram - protecting young users without compromising privacy.
             </p>
             
             <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
@@ -248,7 +247,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-12 text-center">
             <h2 className="text-2xl font-bold text-foreground sm:text-3xl">Technology Stack</h2>
-            <p className="mt-2 text-muted-foreground">Powering our multi-modal threat detection platform</p>
+            <p className="mt-2 text-muted-foreground">Powering our Multi-modal machine learning approach for  threat detection in WhatsApp and Telegram</p>
           </div>
           
           <div className="flex flex-wrap justify-center gap-3">
